@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes-dist/formulaires/ecrire_auteur.html
  * Date :      Tue, 12 Jan 2016 07:50:45 GMT
- * Compile :   Tue, 12 Jan 2016 09:21:16 GMT
+ * Compile :   Tue, 12 Jan 2016 13:12:34 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes-dist/formulaires/ecrire_auteur.html
-// Temps de compilation total: 20.639 ms
+// Temps de compilation total: 22.392 ms
 //
 
 function html_9d96364ed1d79895affe5b2e3d246085($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

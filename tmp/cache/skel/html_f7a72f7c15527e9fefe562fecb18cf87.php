@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-meta.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:34 GMT
  * Boucles :   _lien_webfonts, _keywords_recap, _author_recap, _recap_auteursDC, _recap_subjectDC, _keywords_site, _site_head, _keywords_rubrique, _subjectDC_rub, _rubrique_head, _keywords_mot, _mot_head, _keywords_breve, _breve_head, _author, _keywords_article, _auteursDC, _subjectDC, _article_head
  */ 
 
@@ -120,7 +120,6 @@ function BOUCLE_author_recaphtml_f7a72f7c15527e9fefe562fecb18cf87(&$Cache, &$Pil
 		$command['where'] = 
 			array(
 quete_condition_statut('L2.statut','!','publie',''), 
-quete_condition_postdates('L2.date',''), 
 quete_condition_statut('auteurs.statut','!5poubelle','!5poubelle',''), 
 			array('=', 'auteurs.id_auteur', "1"));
 		$command['join'] = array('L1' => array('auteurs','id_auteur'), 'L2' => array('L1','id_article','id_objet','L1.objet='.sql_quote('article')));
@@ -168,7 +167,6 @@ function BOUCLE_recap_auteursDChtml_f7a72f7c15527e9fefe562fecb18cf87(&$Cache, &$
 		$command['where'] = 
 			array(
 quete_condition_statut('L2.statut','!','publie',''), 
-quete_condition_postdates('L2.date',''), 
 quete_condition_statut('auteurs.statut','!5poubelle','!5poubelle',''), 
 			array('=', 'auteurs.id_auteur', "1"));
 		$command['join'] = array('L1' => array('auteurs','id_auteur'), 'L2' => array('L1','id_article','id_objet','L1.objet='.sql_quote('article')));
@@ -1009,7 +1007,6 @@ function BOUCLE_article_headhtml_f7a72f7c15527e9fefe562fecb18cf87(&$Cache, &$Pil
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.id_article', sql_quote(@$Pile[0]['id_article'],'','bigint(21) NOT NULL AUTO_INCREMENT')), 
 			array('NOT', 
 			array('IN', 'articles.id_article', 
@@ -1100,7 +1097,7 @@ BOUCLE_auteursDChtml_f7a72f7c15527e9fefe562fecb18cf87($Cache, $Pile, $doublons, 
 
 //
 // Fonction principale du squelette squelettes/inc/inc-meta.html
-// Temps de compilation total: 99.137 ms
+// Temps de compilation total: 99.358 ms
 //
 
 function html_f7a72f7c15527e9fefe562fecb18cf87($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

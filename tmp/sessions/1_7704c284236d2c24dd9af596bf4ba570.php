@@ -9,7 +9,7 @@ $GLOBALS['visiteur_session']['login'] = 'xavier.parfait@gmail.com';
 $GLOBALS['visiteur_session']['statut'] = '0minirezo';
 $GLOBALS['visiteur_session']['webmestre'] = 'oui';
 $GLOBALS['visiteur_session']['pgp'] = '';
-$GLOBALS['visiteur_session']['en_ligne'] = '2016-01-12 10:12:07';
+$GLOBALS['visiteur_session']['en_ligne'] = '2016-01-12 14:07:03';
 $GLOBALS['visiteur_session']['source'] = 'spip';
 $GLOBALS['visiteur_session']['lang'] = '';
 $GLOBALS['visiteur_session']['auth'] = 'spip';
@@ -23,7 +23,7 @@ $GLOBALS['visiteur_session']['prefs'] = array (
   'display_outils' => 'oui',
   'cnx' => '',
 );
-$GLOBALS['visiteur_session']['quand'] = '2016-01-12 10:12:07';
+$GLOBALS['visiteur_session']['quand'] = '2016-01-12 14:07:03';
 $GLOBALS['visiteur_session']['restreint'] = array (
 );
 $GLOBALS['visiteur_session']['svp_admin_plugin_verrouille'] = 'tous';

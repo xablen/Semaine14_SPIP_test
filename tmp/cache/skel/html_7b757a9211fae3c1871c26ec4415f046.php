@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/plan.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:21:19 GMT
+ * Compile :   Tue, 12 Jan 2016 13:12:14 GMT
  * Boucles :   _langue_contexte_exclus, _langues, _articles_racine, _articles, _sous_rubriques, _rubriques, _secteurs
  */ 
 
@@ -161,7 +161,6 @@ function BOUCLE_articles_racinehtml_7b757a9211fae3c1871c26ec4415f046(&$Cache, &$
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.id_rubrique', sql_quote($Pile[$SP]['id_rubrique'],'','bigint(21) NOT NULL DEFAULT \'0\'')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
 	$t0 = "";
@@ -222,7 +221,6 @@ function BOUCLE_articleshtml_7b757a9211fae3c1871c26ec4415f046(&$Cache, &$Pile, &
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.id_rubrique', sql_quote($Pile[$SP]['id_rubrique'],'','bigint(21) NOT NULL DEFAULT \'0\'')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
 	$t0 = "";
@@ -443,7 +441,7 @@ interdire_scripts(supprimer_numero(typo(supprimer_numero($Pile[$SP]['titre']), "
 
 //
 // Fonction principale du squelette squelettes/plan.html
-// Temps de compilation total: 43.297 ms
+// Temps de compilation total: 38.962 ms
 //
 
 function html_7b757a9211fae3c1871c26ec4415f046($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

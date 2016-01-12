@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-sommaire-edito.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:25 GMT
+ * Compile :   Tue, 12 Jan 2016 13:25:56 GMT
  * Boucles :   _articles_edito, _articles_edito2, _rub_first, _rubriques_edito
  */ 
 
@@ -38,8 +38,7 @@ function BOUCLE_articles_editohtml_0167a54ed63f4fd0ee2bbef24b5ac307(&$Cache, &$P
 	}
 	$command['where'] = 
 			array(
-quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), (!(is_array(@$Pile[0]['lang'])?count(@$Pile[0]['lang']):strlen(@$Pile[0]['lang'])) ? '' : ((is_array(@$Pile[0]['lang'])) ? sql_in('articles.lang',sql_quote($in)) : 
+quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), (!(is_array(@$Pile[0]['lang'])?count(@$Pile[0]['lang']):strlen(@$Pile[0]['lang'])) ? '' : ((is_array(@$Pile[0]['lang'])) ? sql_in('articles.lang',sql_quote($in)) : 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')))), 
 			array('=', 'L2.titre', "'Editorial'"));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -150,8 +149,7 @@ function BOUCLE_articles_edito2html_0167a54ed63f4fd0ee2bbef24b5ac307(&$Cache, &$
 	}
 	$command['where'] = 
 			array(
-quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), (!(is_array(@$Pile[0]['lang'])?count(@$Pile[0]['lang']):strlen(@$Pile[0]['lang'])) ? '' : ((is_array(@$Pile[0]['lang'])) ? sql_in('articles.lang',sql_quote($in)) : 
+quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), (!(is_array(@$Pile[0]['lang'])?count(@$Pile[0]['lang']):strlen(@$Pile[0]['lang'])) ? '' : ((is_array(@$Pile[0]['lang'])) ? sql_in('articles.lang',sql_quote($in)) : 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')))), 
 			array('=', 'L2.titre', "'Editorial'"));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -418,7 +416,7 @@ quete_condition_statut('rubriques.statut','!','publie',''), (!(is_array(@$Pile[0
 
 //
 // Fonction principale du squelette squelettes/inc/inc-sommaire-edito.html
-// Temps de compilation total: 52.363 ms
+// Temps de compilation total: 28.346 ms
 //
 
 function html_0167a54ed63f4fd0ee2bbef24b5ac307($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

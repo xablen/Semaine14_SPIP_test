@@ -3,7 +3,7 @@
 /*
  * Squelette : plugins-dist/medias/modeles/img.html
  * Date :      Tue, 12 Jan 2016 07:49:29 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:26 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:35 GMT
  * Boucles :   _document
  */ 
 
@@ -170,7 +170,7 @@ vide($Pile['vars'][$_zzz=(string)'image'] = interdire_scripts(((((($a = match(en
 
 //
 // Fonction principale du squelette plugins-dist/medias/modeles/img.html
-// Temps de compilation total: 48.374 ms
+// Temps de compilation total: 41.799 ms
 //
 
 function html_b8a8020987dd01f8087ad24f961857eb($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

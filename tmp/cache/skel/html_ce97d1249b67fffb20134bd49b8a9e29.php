@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/auteur.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:21:16 GMT
+ * Compile :   Tue, 12 Jan 2016 13:12:33 GMT
  * Boucles :   _articles, _auteurs, _auteur_principal
  */ 
 
@@ -34,7 +34,6 @@ function BOUCLE_articleshtml_ce97d1249b67fffb20134bd49b8a9e29(&$Cache, &$Pile, &
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'L1.id_auteur', sql_quote($Pile[$SP]['id_auteur'],'','bigint(21) NOT NULL DEFAULT \'0\'')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
 	$t0 = "";
@@ -110,7 +109,6 @@ function BOUCLE_auteurshtml_ce97d1249b67fffb20134bd49b8a9e29(&$Cache, &$Pile, &$
 		$command['where'] = 
 			array(
 quete_condition_statut('L2.statut','!','publie',''), 
-quete_condition_postdates('L2.date',''), 
 quete_condition_statut('auteurs.statut','!5poubelle','!5poubelle',''));
 		$command['join'] = array('L1' => array('auteurs','id_auteur'), 'L2' => array('L1','id_article','id_objet','L1.objet='.sql_quote('article')));
 		$command['limit'] = '';
@@ -358,7 +356,7 @@ _T('public|spip|ecrire:articles_auteur') .
 
 //
 // Fonction principale du squelette squelettes/auteur.html
-// Temps de compilation total: 86.579 ms
+// Temps de compilation total: 45.258 ms
 //
 
 function html_ce97d1249b67fffb20134bd49b8a9e29($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

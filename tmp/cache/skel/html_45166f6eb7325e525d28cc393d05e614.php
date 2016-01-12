@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-menu.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:36 GMT
  * Boucles :   _RubExclues_sect, _ArtExclus, _art_sommaire, _sousrub_sommaire, _sommaire, _filles, _parents, _hierarchie_courante, _tout, _art_secteur, _sousousrub2, _sousrub2, _secteurs2, _rub_menu
  */ 
 
@@ -86,7 +86,6 @@ function BOUCLE_ArtExclushtml_45166f6eb7325e525d28cc393d05e614(&$Cache, &$Pile, 
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'L2.titre', "'exclu_menu_rub'"), 
 			array(sql_in('articles.id_article', $doublons[$doublons_index[]= ('articles')], 'NOT')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -146,7 +145,6 @@ function BOUCLE_art_sommairehtml_45166f6eb7325e525d28cc393d05e614(&$Cache, &$Pil
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.id_rubrique', sql_quote($Pile[$SP]['id_rubrique'],'','bigint(21) NOT NULL DEFAULT \'0\'')), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')), 
 			array(sql_in('articles.id_article', $doublons[$doublons_index[]= ('articles')], 'NOT')));
@@ -634,7 +632,6 @@ function BOUCLE_art_secteurhtml_45166f6eb7325e525d28cc393d05e614(&$Cache, &$Pile
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.id_rubrique', sql_quote($Pile[$SP]['id_rubrique'],'','bigint(21) NOT NULL DEFAULT \'0\'')), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')), 
 			array(sql_in('articles.id_article', $doublons[$doublons_index[]= ('articles')], 'NOT')));
@@ -971,7 +968,7 @@ BOUCLE_secteurs2html_45166f6eb7325e525d28cc393d05e614($Cache, $Pile, $doublons, 
 
 //
 // Fonction principale du squelette squelettes/inc/inc-menu.html
-// Temps de compilation total: 59.375 ms
+// Temps de compilation total: 62.277 ms
 //
 
 function html_45166f6eb7325e525d28cc393d05e614($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes/sommaire.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:25 GMT
+ * Compile :   Tue, 12 Jan 2016 13:11:23 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes/sommaire.html
-// Temps de compilation total: 12.683 ms
+// Temps de compilation total: 11.194 ms
 //
 
 function html_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

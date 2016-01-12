@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-menu-agenda.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:05 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:36 GMT
  * Boucles :   _art_agenda
  */ 
 
@@ -34,7 +34,6 @@ function BOUCLE_art_agendahtml_78503d8cb0bd66f2d97f4b9c0f7d329a(&$Cache, &$Pile,
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'L2.titre', "'Agenda'"), 
 			array('<', 'TIMESTAMPDIFF(HOUR,articles.date_redac,NOW())/24', "1"), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')));
@@ -96,7 +95,7 @@ interdire_scripts(supprimer_numero(typo(supprimer_numero($Pile[$SP]['titre']), "
 
 //
 // Fonction principale du squelette squelettes/inc/inc-menu-agenda.html
-// Temps de compilation total: 11.497 ms
+// Temps de compilation total: 12.031 ms
 //
 
 function html_78503d8cb0bd66f2d97f4b9c0f7d329a($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

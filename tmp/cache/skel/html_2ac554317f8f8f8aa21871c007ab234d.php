@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-bas.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:05 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:36 GMT
  * Boucles :   _art_visites, _rubriques_chemin, _syndic_rub, _syndic_test
  */ 
 
@@ -30,7 +30,6 @@ function BOUCLE_art_visiteshtml_2ac554317f8f8f8aa21871c007ab234d(&$Cache, &$Pile
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.id_article', sql_quote(@$Pile[0]['id_article'],'','bigint(21) NOT NULL AUTO_INCREMENT')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
 	$t0 = "";
@@ -268,7 +267,7 @@ spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang'])
 
 //
 // Fonction principale du squelette squelettes/inc/inc-bas.html
-// Temps de compilation total: 29.056 ms
+// Temps de compilation total: 28.230 ms
 //
 
 function html_2ac554317f8f8f8aa21871c007ab234d($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/styles.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:34 GMT
  * Boucles :   _polices_webfonts
  */ 
 
@@ -59,7 +59,7 @@ function BOUCLE_polices_webfontshtml_6df0ecfade86092ec8be1bb468d967e1(&$Cache, &
 
 //
 // Fonction principale du squelette squelettes/styles.html
-// Temps de compilation total: 11.713 ms
+// Temps de compilation total: 11.382 ms
 //
 
 function html_6df0ecfade86092ec8be1bb468d967e1($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

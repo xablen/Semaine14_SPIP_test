@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-menu-principal.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:05 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:36 GMT
  * Boucles :   _article, _rubrique, _art_agenda, _site
  */ 
 
@@ -31,7 +31,6 @@ function BOUCLE_articlehtml_7e58ec237019eff13c867a6e81765d14(&$Cache, &$Pile, &$
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'L2.titre', "'inclu_menu_principal'"), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -159,7 +158,6 @@ function BOUCLE_art_agendahtml_7e58ec237019eff13c867a6e81765d14(&$Cache, &$Pile,
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'L2.titre', "'Agenda'"), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -254,7 +252,7 @@ $l2 .
 
 //
 // Fonction principale du squelette squelettes/inc/inc-menu-principal.html
-// Temps de compilation total: 33.637 ms
+// Temps de compilation total: 29.719 ms
 //
 
 function html_7e58ec237019eff13c867a6e81765d14($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

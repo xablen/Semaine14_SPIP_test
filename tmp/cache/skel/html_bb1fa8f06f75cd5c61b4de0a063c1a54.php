@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-syndic.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:27 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:35 GMT
  * Boucles :   _art_syndic2, _art_syndic, _sites
  */ 
 
@@ -241,7 +241,7 @@ quete_condition_statut('syndic.statut','publie,prop','publie',''),
 
 //
 // Fonction principale du squelette squelettes/inc/inc-syndic.html
-// Temps de compilation total: 38.067 ms
+// Temps de compilation total: 31.520 ms
 //
 
 function html_bb1fa8f06f75cd5c61b4de0a063c1a54($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

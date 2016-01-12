@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-annonces.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:35 GMT
  * Boucles :   _annonces_site, _logo_rub_doc, _annonces_rub_img, _logo_art_doc, _annonces_art_img, _annonces_rub, _annonces_art
  */ 
 
@@ -124,7 +124,6 @@ function BOUCLE_logo_rub_dochtml_d7ab7eee0b09f43b71ae8cf8a6406a91(&$Cache, &$Pil
 	$command['where'] = 
 			array(
 quete_condition_statut('documents.statut','publie,prop,prepa','publie',''), 
-quete_condition_postdates('documents.date_publication',''), 
 			array('IN', 'documents.mode', '(\'image\',\'document\')'), 
 			array('(documents.taille > 0 OR documents.distant=\'oui\')'), 
 			array('=', 'L1.id_objet', sql_quote($Pile[$SP]['id_rubrique'],'','bigint(21) NOT NULL DEFAULT \'0\'')), 
@@ -259,7 +258,6 @@ function BOUCLE_logo_art_dochtml_d7ab7eee0b09f43b71ae8cf8a6406a91(&$Cache, &$Pil
 	$command['where'] = 
 			array(
 quete_condition_statut('documents.statut','publie,prop,prepa','publie',''), 
-quete_condition_postdates('documents.date_publication',''), 
 			array('IN', 'documents.mode', '(\'image\',\'document\')'), 
 			array('(documents.taille > 0 OR documents.distant=\'oui\')'), 
 			array('=', 'L1.id_objet', sql_quote($Pile[$SP]['id_article'],'','bigint(21) NOT NULL DEFAULT \'0\'')), 
@@ -331,7 +329,6 @@ function BOUCLE_annonces_art_imghtml_d7ab7eee0b09f43b71ae8cf8a6406a91(&$Cache, &
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')), 
 			array(sql_in('articles.id_article', $doublons[$doublons_index[]= ('articles')], 'NOT')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -491,7 +488,6 @@ function BOUCLE_annonces_arthtml_d7ab7eee0b09f43b71ae8cf8a6406a91(&$Cache, &$Pil
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')), 
 			array('=', 'L2.titre', "'Annonce'"));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -572,7 +568,7 @@ quete_condition_postdates('articles.date',''),
 
 //
 // Fonction principale du squelette squelettes/inc/inc-annonces.html
-// Temps de compilation total: 72.196 ms
+// Temps de compilation total: 87.232 ms
 //
 
 function html_d7ab7eee0b09f43b71ae8cf8a6406a91($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

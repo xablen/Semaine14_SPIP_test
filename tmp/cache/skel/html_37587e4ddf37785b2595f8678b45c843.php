@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes/inc/inc-affvisit.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 10:43:05 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:36 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes/inc/inc-affvisit.html
-// Temps de compilation total: 1.352 ms
+// Temps de compilation total: 0.906 ms
 //
 
 function html_37587e4ddf37785b2595f8678b45c843($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

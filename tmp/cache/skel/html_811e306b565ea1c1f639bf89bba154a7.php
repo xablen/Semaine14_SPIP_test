@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-sommaire-articles.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:26 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:35 GMT
  * Boucles :   _articles_exclus, _article_langue
  */ 
 
@@ -36,7 +36,6 @@ function BOUCLE_articles_exclushtml_811e306b565ea1c1f639bf89bba154a7(&$Cache, &$
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')), sql_in('L2.titre',sql_quote($in)), 
 			array(sql_in('articles.id_article', $doublons[$doublons_index[]= ('articles')], 'NOT')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -100,7 +99,6 @@ function BOUCLE_article_languehtml_811e306b565ea1c1f639bf89bba154a7(&$Cache, &$P
 	$command['where'] = 
 			array(
 quete_condition_statut('articles.statut','publie,prop,prepa/auteur','publie',''), 
-quete_condition_postdates('articles.date',''), 
 			array('=', 'articles.lang', sql_quote($GLOBALS['spip_lang'],'','varchar(10) NOT NULL DEFAULT \'\'')), 
 			array(sql_in('articles.id_article', $doublons[$doublons_index[]= ('articles')], 'NOT')));
 	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
@@ -233,7 +231,7 @@ interdire_scripts(supprimer_numero(typo(supprimer_numero($Pile[$SP]['titre']), "
 
 //
 // Fonction principale du squelette squelettes/inc/inc-sommaire-articles.html
-// Temps de compilation total: 25.210 ms
+// Temps de compilation total: 23.737 ms
 //
 
 function html_811e306b565ea1c1f639bf89bba154a7($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

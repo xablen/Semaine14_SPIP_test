@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-breves.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:27 GMT
+ * Compile :   Tue, 12 Jan 2016 13:26:35 GMT
  * Boucles :   _breves_sommaire, _breves_rubriques
  */ 
 
@@ -153,7 +153,7 @@ interdire_scripts(supprimer_numero(typo(supprimer_numero($Pile[$SP]['titre']), "
 
 //
 // Fonction principale du squelette squelettes/inc/inc-breves.html
-// Temps de compilation total: 12.539 ms
+// Temps de compilation total: 12.277 ms
 //
 
 function html_11157eacea3e766769d2031f1e2eed04($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {
