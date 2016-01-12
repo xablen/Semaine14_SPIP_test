@@ -10,6 +10,7 @@ include_once_check(_ROOT_PLUGINS_DIST.'plan/plan_fonctions.php');
 include_once_check(_ROOT_PLUGINS_DIST.'porte_plume/porte_plume_fonctions.php');
 include_once_check(_ROOT_PLUGINS_DIST.'sites/sites_fonctions.php');
 include_once_check(_ROOT_PLUGINS_DIST.'svp/svp_fonctions.php');
+include_once_check(_ROOT_PLUGINS.'auto/ahuntsic/v2.0.3/ahuntsic_fonctions.php');
 include_once_check(_ROOT_PLUGINS_DIST.'compresseur/compresseur_fonctions.php');
 include_once_check(_ROOT_PLUGINS_DIST.'medias/medias_fonctions.php');
 if (!function_exists('boutons_plugins')) {

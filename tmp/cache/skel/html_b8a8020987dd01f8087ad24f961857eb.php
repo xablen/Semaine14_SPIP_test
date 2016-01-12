@@ -1,9 +1,9 @@
 <?php
 
 /*
- * Squelette : ../plugins-dist/medias/modeles/img.html
+ * Squelette : plugins-dist/medias/modeles/img.html
  * Date :      Tue, 12 Jan 2016 07:49:29 GMT
- * Compile :   Tue, 12 Jan 2016 08:19:07 GMT
+ * Compile :   Tue, 12 Jan 2016 09:19:26 GMT
  * Boucles :   _document
  */ 
 
@@ -47,7 +47,7 @@ function BOUCLE_documenthtml_b8a8020987dd01f8087ad24f961857eb(&$Cache, &$Pile, &
 	$iter = IterFactory::create(
 		"SQL",
 		$command,
-		array('../plugins-dist/medias/modeles/img.html','html_b8a8020987dd01f8087ad24f961857eb','_document',1,$GLOBALS['spip_lang'])
+		array('plugins-dist/medias/modeles/img.html','html_b8a8020987dd01f8087ad24f961857eb','_document',1,$GLOBALS['spip_lang'])
 	);
 	if (!$iter->err()) {
 	$SP++;
@@ -164,13 +164,13 @@ vide($Pile['vars'][$_zzz=(string)'image'] = interdire_scripts(((((($a = match(en
 	}
 	if (defined("_BOUCLE_PROFILER")
 	AND 1000*($timer = (time()+microtime())-$timer) > _BOUCLE_PROFILER)
-		spip_log(intval(1000*$timer)."ms BOUCLE_document @ ../plugins-dist/medias/modeles/img.html","profiler"._LOG_AVERTISSEMENT);
+		spip_log(intval(1000*$timer)."ms BOUCLE_document @ plugins-dist/medias/modeles/img.html","profiler"._LOG_AVERTISSEMENT);
 	return $t0;
 }
 
 //
-// Fonction principale du squelette ../plugins-dist/medias/modeles/img.html
-// Temps de compilation total: 42.282 ms
+// Fonction principale du squelette plugins-dist/medias/modeles/img.html
+// Temps de compilation total: 48.374 ms
 //
 
 function html_b8a8020987dd01f8087ad24f961857eb($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {
@@ -184,6 +184,6 @@ BOUCLE_documenthtml_b8a8020987dd01f8087ad24f961857eb($Cache, $Pile, $doublons, $
 '
 ');
 
-	return analyse_resultat_skel('html_b8a8020987dd01f8087ad24f961857eb', $Cache, $page, '../plugins-dist/medias/modeles/img.html');
+	return analyse_resultat_skel('html_b8a8020987dd01f8087ad24f961857eb', $Cache, $page, 'plugins-dist/medias/modeles/img.html');
 }
 ?>

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * Squelette : ../squelettes-dist/modeles/lesauteurs.html
+ * Squelette : squelettes-dist/modeles/lesauteurs.html
  * Date :      Tue, 12 Jan 2016 07:50:45 GMT
- * Compile :   Tue, 12 Jan 2016 08:19:40 GMT
+ * Compile :   Tue, 12 Jan 2016 09:19:26 GMT
  * Boucles :   _auteurs
  */ 
 
@@ -37,7 +37,7 @@ quete_condition_statut('auteurs.statut','!5poubelle','!5poubelle',''),
 	$iter = IterFactory::create(
 		"SQL",
 		$command,
-		array('../squelettes-dist/modeles/lesauteurs.html','html_bc3326b3fba39516fdcfa67a49c7ff7f','_auteurs',9,$GLOBALS['spip_lang'])
+		array('squelettes-dist/modeles/lesauteurs.html','html_bc3326b3fba39516fdcfa67a49c7ff7f','_auteurs',9,$GLOBALS['spip_lang'])
 	);
 	if (!$iter->err()) {
 	$SP++;
@@ -57,13 +57,13 @@ interdire_scripts(typo(supprimer_numero($Pile[$SP]['nom']), "TYPO", $connect, $P
 	}
 	if (defined("_BOUCLE_PROFILER")
 	AND 1000*($timer = (time()+microtime())-$timer) > _BOUCLE_PROFILER)
-		spip_log(intval(1000*$timer)."ms BOUCLE_auteurs @ ../squelettes-dist/modeles/lesauteurs.html","profiler"._LOG_AVERTISSEMENT);
+		spip_log(intval(1000*$timer)."ms BOUCLE_auteurs @ squelettes-dist/modeles/lesauteurs.html","profiler"._LOG_AVERTISSEMENT);
 	return $t0;
 }
 
 //
-// Fonction principale du squelette ../squelettes-dist/modeles/lesauteurs.html
-// Temps de compilation total: 8.359 ms
+// Fonction principale du squelette squelettes-dist/modeles/lesauteurs.html
+// Temps de compilation total: 8.068 ms
 //
 
 function html_bc3326b3fba39516fdcfa67a49c7ff7f($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {
@@ -77,6 +77,6 @@ function html_bc3326b3fba39516fdcfa67a49c7ff7f($Cache, $Pile, $doublons = array(
 ' .
 BOUCLE_auteurshtml_bc3326b3fba39516fdcfa67a49c7ff7f($Cache, $Pile, $doublons, $Numrows, $SP));
 
-	return analyse_resultat_skel('html_bc3326b3fba39516fdcfa67a49c7ff7f', $Cache, $page, '../squelettes-dist/modeles/lesauteurs.html');
+	return analyse_resultat_skel('html_bc3326b3fba39516fdcfa67a49c7ff7f', $Cache, $page, 'squelettes-dist/modeles/lesauteurs.html');
 }
 ?>

@@ -2,220 +2,13 @@
 
 /*
  * Squelette : squelettes/sommaire.html
- * Date :      Tue, 12 Jan 2016 08:40:55 GMT
- * Compile :   Tue, 12 Jan 2016 08:44:30 GMT
- * Boucles :   _breves, _forums_liens, _syndic
+ * Date :      Wed, 23 Dec 2015 13:11:16 GMT
+ * Compile :   Tue, 12 Jan 2016 09:19:25 GMT
+ * Boucles :   
  */ 
-
-function BOUCLE_breveshtml_20bad19474852c2c1a99d7289d969071(&$Cache, &$Pile, &$doublons, &$Numrows, $SP) {
-
-	static $command = array();
-	static $connect;
-	$command['connect'] = $connect = '';
-	if (!isset($command['table'])) {
-		$command['table'] = 'breves';
-		$command['id'] = '_breves';
-		$command['from'] = array('breves' => 'spip_breves');
-		$command['type'] = array();
-		$command['groupby'] = array();
-		$command['select'] = array("breves.date_heure",
-		"breves.lang",
-		"breves.date_heure AS date",
-		"breves.id_breve",
-		"breves.titre",
-		"breves.texte");
-		$command['orderby'] = array('breves.date_heure DESC');
-		$command['where'] = 
-			array(
-quete_condition_statut('breves.statut','publie,prop','publie',''));
-		$command['join'] = array();
-		$command['limit'] = '0,3';
-		$command['having'] = 
-			array();
-	}
-	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
-	$t0 = "";
-	// REQUETE
-	$iter = IterFactory::create(
-		"SQL",
-		$command,
-		array('squelettes/sommaire.html','html_20bad19474852c2c1a99d7289d969071','_breves',34,$GLOBALS['spip_lang'])
-	);
-	if (!$iter->err()) {
-	lang_select($GLOBALS['spip_lang']);
-	$SP++;
-	// RESULTATS
-	while ($Pile[$SP]=$iter->fetch()) {
-
-		lang_select_public($Pile[$SP]['lang'], '', $Pile[$SP]['titre']);
-		$t0 .= (
-'
-					<li dir="' .
-lang_dir($Pile[$SP]['lang'], 'ltr','rtl') .
-'" class="text-' .
-lang_dir($Pile[$SP]['lang'], 'left','right') .
-'">
-						' .
-(($t1 = strval(interdire_scripts(affdate_jourcourt(normaliser_date($Pile[$SP]['date'])))))!=='' ?
-		('<small>' . $t1 . '</small>') :
-		'') .
-'
-						<h3><a href="' .
-vider_url(urlencode_1738(generer_url_entite($Pile[$SP]['id_breve'], 'breve', '', '', true))) .
-'">' .
-interdire_scripts(typo(supprimer_numero($Pile[$SP]['titre']), "TYPO", $connect, $Pile[0])) .
-'</a></h3>
-						' .
-interdire_scripts(filtre_introduction_dist('', $Pile[$SP]['texte'], 300, $connect, null)) .
-'
-					</li>
-					');
-		lang_select();
-	}
-	lang_select();
-	$iter->free();
-	}
-	if (defined("_BOUCLE_PROFILER")
-	AND 1000*($timer = (time()+microtime())-$timer) > _BOUCLE_PROFILER)
-		spip_log(intval(1000*$timer)."ms BOUCLE_breves @ squelettes/sommaire.html","profiler"._LOG_AVERTISSEMENT);
-	return $t0;
-}
-
-
-function BOUCLE_forums_lienshtml_20bad19474852c2c1a99d7289d969071(&$Cache, &$Pile, &$doublons, &$Numrows, $SP) {
-
-	static $command = array();
-	static $connect;
-	$command['connect'] = $connect = '';
-	if (!isset($command['table'])) {
-		$command['table'] = 'forum';
-		$command['id'] = '_forums_liens';
-		$command['from'] = array('forum' => 'spip_forum');
-		$command['type'] = array();
-		$command['groupby'] = array();
-		$command['select'] = array("forum.date_heure",
-		"forum.texte",
-		"forum.auteur AS nom",
-		"forum.id_forum",
-		"forum.titre");
-		$command['orderby'] = array('forum.date_heure DESC');
-		$command['where'] = 
-			array(
-quete_condition_statut('forum.statut','publie,prop','publie',''));
-		$command['join'] = array();
-		$command['limit'] = '0,5';
-		$command['having'] = 
-			array();
-	}
-	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
-	$t0 = "";
-	// REQUETE
-	$iter = IterFactory::create(
-		"SQL",
-		$command,
-		array('squelettes/sommaire.html','html_20bad19474852c2c1a99d7289d969071','_forums_liens',50,$GLOBALS['spip_lang'])
-	);
-	if (!$iter->err()) {
-	$SP++;
-	// RESULTATS
-	while ($Pile[$SP]=$iter->fetch()) {
-
-		$t0 .= (
-'
-					' .
-(($t1 = strval(interdire_scripts(couper(liens_nofollow(safehtml(propre(interdit_html($Pile[$SP]['texte']), $connect, $Pile[0]))),'80'))))!=='' ?
-		((	'<li>' .
-	(($t2 = strval(interdire_scripts(((($a = typo(supprimer_numero($Pile[$SP]['nom']), "TYPO", $connect, $Pile[0])) OR (is_string($a) AND strlen($a))) ? $a : '...'))))!=='' ?
-			($t2 . '&nbsp;: ') :
-			'') .
-	'<a href="' .
-	vider_url(urlencode_1738(generer_url_entite($Pile[$SP]['id_forum'], 'forum', '', '', true))) .
-	'"' .
-	(($t2 = strval(interdire_scripts(couper(attribut_html(liens_nofollow(safehtml(typo(interdit_html($Pile[$SP]['titre']), "TYPO", $connect, $Pile[0])))),'80'))))!=='' ?
-			(' title="' . $t2 . '"') :
-			'') .
-	'>') . $t1 . '</a></li>') :
-		'') .
-'
-					');
-	}
-	$iter->free();
-	}
-	if (defined("_BOUCLE_PROFILER")
-	AND 1000*($timer = (time()+microtime())-$timer) > _BOUCLE_PROFILER)
-		spip_log(intval(1000*$timer)."ms BOUCLE_forums_liens @ squelettes/sommaire.html","profiler"._LOG_AVERTISSEMENT);
-	return $t0;
-}
-
-
-function BOUCLE_syndichtml_20bad19474852c2c1a99d7289d969071(&$Cache, &$Pile, &$doublons, &$Numrows, $SP) {
-
-	static $command = array();
-	static $connect;
-	$command['connect'] = $connect = '';
-	if (!isset($command['table'])) {
-		$command['table'] = 'syndic_articles';
-		$command['id'] = '_syndic';
-		$command['from'] = array('syndic_articles' => 'spip_syndic_articles','L1' => 'spip_syndic');
-		$command['type'] = array();
-		$command['groupby'] = array();
-		$command['select'] = array("syndic_articles.date",
-		"syndic_articles.url",
-		"L1.url_site",
-		"L1.nom_site",
-		"syndic_articles.titre");
-		$command['orderby'] = array('syndic_articles.date DESC');
-		$command['where'] = 
-			array(
-quete_condition_statut('L1.statut','publie,prop','publie',''), 
-quete_condition_statut('syndic_articles.statut','publie,prop','publie',''), 
-			array('<', 'TIMESTAMPDIFF(HOUR,syndic_articles.date,NOW())/24', "180"));
-		$command['join'] = array('L1' => array('syndic_articles','id_syndic'));
-		$command['limit'] = '0,5';
-		$command['having'] = 
-			array();
-	}
-	if (defined("_BOUCLE_PROFILER")) $timer = time()+microtime();
-	$t0 = "";
-	// REQUETE
-	$iter = IterFactory::create(
-		"SQL",
-		$command,
-		array('squelettes/sommaire.html','html_20bad19474852c2c1a99d7289d969071','_syndic',62,$GLOBALS['spip_lang'])
-	);
-	if (!$iter->err()) {
-	$SP++;
-	// RESULTATS
-	while ($Pile[$SP]=$iter->fetch()) {
-
-		$t0 .= (
-'
-					<li>' .
-(($t1 = strval(interdire_scripts(affdate_jourcourt(normaliser_date($Pile[$SP]['date'])))))!=='' ?
-		($t1 . ' &ndash; ') :
-		'') .
-'<a href="' .
-vider_url($Pile[$SP]['url']) .
-'"' .
-(($t1 = strval(interdire_scripts(couper(attribut_html(typo(supprimer_numero(calculer_url($Pile[$SP]['url_site'],$Pile[$SP]['nom_site'], 'titre', $connect, false)), "TYPO", $connect, $Pile[0])),'80'))))!=='' ?
-		(' title="' . $t1 . '"') :
-		'') .
-' class="spip_out">' .
-interdire_scripts(typo(supprimer_numero($Pile[$SP]['titre']), "TYPO", $connect, $Pile[0])) .
-'</a></li>
-					');
-	}
-	$iter->free();
-	}
-	if (defined("_BOUCLE_PROFILER")
-	AND 1000*($timer = (time()+microtime())-$timer) > _BOUCLE_PROFILER)
-		spip_log(intval(1000*$timer)."ms BOUCLE_syndic @ squelettes/sommaire.html","profiler"._LOG_AVERTISSEMENT);
-	return $t0;
-}
-
 //
 // Fonction principale du squelette squelettes/sommaire.html
-// Temps de compilation total: 64.578 ms
+// Temps de compilation total: 12.683 ms
 //
 
 function html_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {
@@ -225,191 +18,131 @@ function html_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons = array(
 
 	$connect = '';
 	$page = (
-'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--[if lt IE 7 ]> <html dir="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
+'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="' .
+spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
 '" lang="' .
 spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" xmlns="http://www.w3.org/1999/xhtml" xml:lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" class="' .
+'" dir="' .
 lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-(($t1 = strval(spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang'])))!=='' ?
-		(' ' . $t1) :
-		'') .
-' no-js ie ie6"> <![endif]-->
-<!--[if IE 7 ]> <html dir="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-'" lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" xmlns="http://www.w3.org/1999/xhtml" xml:lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" class="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-(($t1 = strval(spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang'])))!=='' ?
-		(' ' . $t1) :
-		'') .
-' no-js ie ie7"> <![endif]-->
-<!--[if IE 8 ]> <html dir="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-'" lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" xmlns="http://www.w3.org/1999/xhtml" xml:lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" class="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-(($t1 = strval(spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang'])))!=='' ?
-		(' ' . $t1) :
-		'') .
-' no-js ie ie8"> <![endif]-->
-<!--[if IE 9 ]> <html dir="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-'" lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" xmlns="http://www.w3.org/1999/xhtml" xml:lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" class="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-(($t1 = strval(spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang'])))!=='' ?
-		(' ' . $t1) :
-		'') .
-' no-js ie ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html dir="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-'" lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" xmlns="http://www.w3.org/1999/xhtml" xml:lang="' .
-spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
-'" class="' .
-lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
-(($t1 = strval(spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang'])))!=='' ?
-		(' ' . $t1) :
-		'') .
-' no-js"> <!--<![endif]-->
+'">
 <head>
-  <script type=\'text/javascript\'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\\bno-js\\b/,\'js\')})(document.documentElement);/*]]>*/</script>
-  <title>' .
+	<title>[' .
 interdire_scripts(textebrut(typo($GLOBALS['meta']['nom_site'], "TYPO", $connect, $Pile[0]))) .
-(($t1 = strval(interdire_scripts(textebrut(typo($GLOBALS['meta']['slogan_site'], "TYPO", $connect, $Pile[0])))))!=='' ?
-		(' - ' . $t1) :
-		'') .
-'</title>
-  ' .
-(($t1 = strval(interdire_scripts(textebrut(couper(propre($GLOBALS['meta']['descriptif_site'], $connect, $Pile[0]),'150')))))!=='' ?
-		('<meta name="description" content="' . $t1 . '" />') :
-		'') .
-'
-  ' .
+']</title>
+	' .
 
-'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inclure/head') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',11,$GLOBALS[\'spip_lang\'])), _request("connect"));
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-meta') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',6,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+	' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('styles') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',7,$GLOBALS[\'spip_lang\'])), _request("connect"));
 ?'.'>
 </head>
+<body dir="' .
+lang_dir(@$Pile[0]['lang'], 'ltr','rtl') .
+'" class="' .
+spip_htmlentities(@$Pile[0]['lang'] ? @$Pile[0]['lang'] : $GLOBALS['spip_lang']) .
+' sommaire">
+<div id="page" class="sommaire">
 
-<body class="pas_surlignable page_sommaire">
-<div class="page">
+<!-- *****************************************************************
+	Bandeau, titre du site et menu langue
+	Header and main menu (top and right) 
+    ************************************************************* -->
 
-	' .
-
-'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inclure/header') . ', array(\'home\' => ' . argumenter_squelette('oui') . ',
-	\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',17,$GLOBALS[\'spip_lang\'])), _request("connect"));
-?'.'>
   ' .
 
-'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inclure/nav') . ', array_merge('.var_export($Pile[0],1).',array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . ')), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',18,$GLOBALS[\'spip_lang\'])), _request("connect"));
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-bandeau') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',17,$GLOBALS[\'spip_lang\'])), _request("connect"));
 ?'.'>
-	
-	<div class="main">
-		<div class="wrapper hfeed">
-		<div class="content" id="content">
-			' .
-(($t1 = strval(interdire_scripts(propre($GLOBALS['meta']['descriptif_site'], $connect, $Pile[0]))))!=='' ?
-		('<div class="chapo">' . $t1 . '</div>') :
-		'') .
-'
-			' .
 
-'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inclure/recents') . ', array_merge('.var_export($Pile[0],1).',array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . ')), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',24,$GLOBALS[\'spip_lang\']),\'ajax\' => ($v=( ' . argumenter_squelette(@$Pile[0]['ajax']) . '))?$v:true), _request("connect"));
-?'.'>
-		</div><!--.content-->
-		</div><!--.wrapper-->
-		
-		<div class="aside">
-			' .
+<!-- *****************************************************************
+	Contenu principal (centre)
+	Main content (center) 
+    ************************************************************* -->
+  <div id="bloc-contenu">
+    <div class="edito">
+		' .
 
-'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inclure/navsub') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',29,$GLOBALS[\'spip_lang\'])), _request("connect"));
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-sommaire-edito') . ', array_merge('.var_export($Pile[0],1).',array(\'self\' => ' . argumenter_squelette(self()) . ',
+	\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . ')), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',25,$GLOBALS[\'spip_lang\'])), _request("connect"));
 ?'.'>
-			' .
-executer_balise_dynamique('FORMULAIRE_RECHERCHE',
+    </div><!-- edito -->
+    
+    <h2 class="structure">' .
+_T('public|spip|ecrire:articles_recents') .
+'</h2>
+    ' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-sommaire-articles') . ', array_merge('.var_export($Pile[0],1).',array(\'self\' => ' . argumenter_squelette(self()) . ',
+	\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . ')), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',29,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+    
+     
+  </div><!-- bloc-contenu-->
+
+<!-- *****************************************************************
+	Menus contextuels (droite)
+	Contextual menus (right) 
+    ************************************************************* -->
+  <div id="encart">  
+
+' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-trad') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',40,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+
+' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-annonces') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',42,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+
+' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-breves') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',44,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+
+' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-syndic') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',46,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+
+    <!-- Inscription au site -->
+    ' .
+(($t1 = strval(executer_balise_dynamique('FORMULAIRE_INSCRIPTION',
 	array(),
-	array('squelettes/sommaire.html','html_20bad19474852c2c1a99d7289d969071','',30,$GLOBALS['spip_lang'])) .
-'
-			
-			
-			' .
-(($t1 = BOUCLE_breveshtml_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons, $Numrows, $SP))!=='' ?
-		((	'
-			<div class="menu menu_breves">
-				<h2>' .
-		_T('public|spip|ecrire:dernieres_breves') .
-		'</h2>
-				<ul>
-					') . $t1 . '
-				</ul>
-			</div>
-			') :
+	array('squelettes/sommaire.html','html_20bad19474852c2c1a99d7289d969071','',45,$GLOBALS['spip_lang']))))!=='' ?
+		((	'<div class="menu" id="inscription">
+        <ul>
+          <li><b>' .
+	_T('public|spip|ecrire:pass_vousinscrire') .
+	'</b>            
+            <ul>
+              <li>
+                ') . $t1 . '
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </div><!-- menu -->') :
 		'') .
 '
-			
-			
-			' .
-(($t1 = BOUCLE_forums_lienshtml_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons, $Numrows, $SP))!=='' ?
-		((	'
-			<div class="menu menu_comments">
-				<h2>' .
-		_T('public|spip|ecrire:derniers_commentaires') .
-		'</h2>
-				<ul>
-					') . $t1 . '
-				</ul>
-			</div>
-			') :
-		'') .
-'
-			
-			
-			' .
-(($t1 = BOUCLE_syndichtml_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons, $Numrows, $SP))!=='' ?
-		((	'
-			<div class="menu">
-				<h2>' .
-		_T('public|spip|ecrire:nouveautes_web') .
-		'</h2>
-				<ul>
-					') . $t1 . '
-				</ul>
-			</div>
-			') :
-		'') .
-'
-			
-			' .
-executer_balise_dynamique('FORMULAIRE_INSCRIPTION',
-	array(),
-	array('squelettes/sommaire.html','html_20bad19474852c2c1a99d7289d969071','',73,$GLOBALS['spip_lang'])) .
-'
-		</div><!--.aside-->
-	</div><!--.main-->
-	
-	' .
 
-'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inclure/footer') . ', array_merge('.var_export($Pile[0],1).',array(\'self\' => ' . argumenter_squelette(self()) . ',
-	\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . ')), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',77,$GLOBALS[\'spip_lang\'])), _request("connect"));
+
+  </div><!-- encart -->
+' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-menu') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',53,$GLOBALS[\'spip_lang\'])), _request("connect"));
 ?'.'>
-	
-</div><!--.page-->
+' .
+
+'<'.'?php echo recuperer_fond( ' . argumenter_squelette('inc/inc-bas') . ', array(\'lang\' => ' . argumenter_squelette($GLOBALS["spip_lang"]) . '), array("compil"=>array(\'squelettes/sommaire.html\',\'html_20bad19474852c2c1a99d7289d969071\',\'\',54,$GLOBALS[\'spip_lang\'])), _request("connect"));
+?'.'>
+
+</div><!-- page-->
 </body>
-</html>
-');
+</html>');
 
 	return analyse_resultat_skel('html_20bad19474852c2c1a99d7289d969071', $Cache, $page, 'squelettes/sommaire.html');
 }
