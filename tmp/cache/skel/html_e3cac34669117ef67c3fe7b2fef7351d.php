@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes/inc/inc-bandeau.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:25 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes/inc/inc-bandeau.html
-// Temps de compilation total: 26.282 ms
+// Temps de compilation total: 31.815 ms
 //
 
 function html_e3cac34669117ef67c3fe7b2fef7351d($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

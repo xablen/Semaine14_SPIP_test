@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-bas_menu-lang.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:28 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:05 GMT
  * Boucles :   _langues
  */ 
 
@@ -79,7 +79,7 @@ quete_condition_statut('rubriques.statut','!','publie',''),
 
 //
 // Fonction principale du squelette squelettes/inc/inc-bas_menu-lang.html
-// Temps de compilation total: 6.689 ms
+// Temps de compilation total: 6.592 ms
 //
 
 function html_9491858aea5af6033788aa1936ebca8d($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

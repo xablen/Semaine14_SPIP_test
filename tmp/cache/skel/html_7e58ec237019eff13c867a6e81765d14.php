@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-menu-principal.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:27 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:05 GMT
  * Boucles :   _article, _rubrique, _art_agenda, _site
  */ 
 
@@ -254,7 +254,7 @@ $l2 .
 
 //
 // Fonction principale du squelette squelettes/inc/inc-menu-principal.html
-// Temps de compilation total: 34.169 ms
+// Temps de compilation total: 33.637 ms
 //
 
 function html_7e58ec237019eff13c867a6e81765d14($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

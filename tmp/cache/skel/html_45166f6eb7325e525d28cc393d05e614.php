@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-menu.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:27 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
  * Boucles :   _RubExclues_sect, _ArtExclus, _art_sommaire, _sousrub_sommaire, _sommaire, _filles, _parents, _hierarchie_courante, _tout, _art_secteur, _sousousrub2, _sousrub2, _secteurs2, _rub_menu
  */ 
 
@@ -971,7 +971,7 @@ BOUCLE_secteurs2html_45166f6eb7325e525d28cc393d05e614($Cache, $Pile, $doublons, 
 
 //
 // Fonction principale du squelette squelettes/inc/inc-menu.html
-// Temps de compilation total: 66.442 ms
+// Temps de compilation total: 59.375 ms
 //
 
 function html_45166f6eb7325e525d28cc393d05e614($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

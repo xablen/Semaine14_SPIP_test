@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-annonces.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:26 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
  * Boucles :   _annonces_site, _logo_rub_doc, _annonces_rub_img, _logo_art_doc, _annonces_art_img, _annonces_rub, _annonces_art
  */ 
 
@@ -572,7 +572,7 @@ quete_condition_postdates('articles.date',''),
 
 //
 // Fonction principale du squelette squelettes/inc/inc-annonces.html
-// Temps de compilation total: 82.725 ms
+// Temps de compilation total: 72.196 ms
 //
 
 function html_d7ab7eee0b09f43b71ae8cf8a6406a91($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

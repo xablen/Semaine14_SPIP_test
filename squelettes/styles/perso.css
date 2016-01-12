@@ -1,0 +1,10 @@
+#bloc-contenu
+{
+	position: static;
+	border: solid 1px #DEDEDE;
+	margin: 10px 155px 5px 155px;
+	padding: 10px 10px 5px;
+	background: #EDDF5C;
+	z-index: 20;
+	overflow: hidden;
+}

@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes-dist/modeles/lesauteurs.html
  * Date :      Tue, 12 Jan 2016 07:50:45 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:26 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:02 GMT
  * Boucles :   _auteurs
  */ 
 
@@ -63,7 +63,7 @@ interdire_scripts(typo(supprimer_numero($Pile[$SP]['nom']), "TYPO", $connect, $P
 
 //
 // Fonction principale du squelette squelettes-dist/modeles/lesauteurs.html
-// Temps de compilation total: 8.068 ms
+// Temps de compilation total: 8.133 ms
 //
 
 function html_bc3326b3fba39516fdcfa67a49c7ff7f($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

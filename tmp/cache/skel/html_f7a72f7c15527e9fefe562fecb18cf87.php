@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/inc/inc-meta.html
  * Date :      Wed, 23 Dec 2015 13:11:16 GMT
- * Compile :   Tue, 12 Jan 2016 09:19:25 GMT
+ * Compile :   Tue, 12 Jan 2016 10:43:04 GMT
  * Boucles :   _lien_webfonts, _keywords_recap, _author_recap, _recap_auteursDC, _recap_subjectDC, _keywords_site, _site_head, _keywords_rubrique, _subjectDC_rub, _rubrique_head, _keywords_mot, _mot_head, _keywords_breve, _breve_head, _author, _keywords_article, _auteursDC, _subjectDC, _article_head
  */ 
 
@@ -1100,7 +1100,7 @@ BOUCLE_auteursDChtml_f7a72f7c15527e9fefe562fecb18cf87($Cache, $Pile, $doublons, 
 
 //
 // Fonction principale du squelette squelettes/inc/inc-meta.html
-// Temps de compilation total: 138.159 ms
+// Temps de compilation total: 99.137 ms
 //
 
 function html_f7a72f7c15527e9fefe562fecb18cf87($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {
